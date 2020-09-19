@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="text-center">Login Form</h1>
+  <form method="POST">
+    <input
+      placeholder="Username"
+      class="form-control m-2"
+      type="text"
+      [(ngModel)]="input.username"
+      name="username"
+      required
+    />
+    <input
+      placeholder="Password"
+      class="form-control m-2"
+      type="password"
+      [(ngModel)]="input.password"
+      name="password"
+      required
+    />
+
+    <input
+      class="btn btn-sm m-2 btn-primary"
+      type="submit"
+      value="Login"
+      (click)="loginUser()"
+    />
+  </form>
+  Don't have an account?
+  <a class="btn btn-sm m-2 btn-info" routerLink="/register"> Register </a>
+</div>
