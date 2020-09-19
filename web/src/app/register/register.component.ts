@@ -56,7 +56,8 @@ export class RegisterComponent implements OnInit {
             timeOut: 5000,
           });
         } else {
-          this.toaster.error(`Username already exists!`);
+          console.log(error.error.username);
+          this.toaster.error(error.error.username);
         }
       }
     );
