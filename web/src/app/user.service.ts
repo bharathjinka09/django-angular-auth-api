@@ -8,11 +8,13 @@ import { Observable } from 'rxjs';
 export class UserService {
   constructor(private http: HttpClient) {}
 
+  url = 'http://127.0.0.1:8000/api';
+
   registerUser(userData): Observable<any> {
-    return this.http.post('http://127.0.0.1:8000/api/users/', userData);
+    return this.http.post(`${this.url}/users/`, userData);
   }
 
   loginUser(userData): Observable<any> {
-    return this.http.post('http://127.0.0.1:8000/api/auth/', userData);
+    return this.http.post(`${this.url}/auth/`, userData);
   }
 }
