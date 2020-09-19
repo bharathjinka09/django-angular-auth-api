@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,10 @@ import { UserService } from '../user.service';
 export class LoginComponent implements OnInit {
   input;
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private toaster: ToastrService
+  ) {}
 
   ngOnInit() {
     this.input = {
@@ -25,22 +29,36 @@ export class LoginComponent implements OnInit {
         console.log(response);
         if (this.input) {
           console.log(response, 'response');
-          alert(`User ${this.input.username} is logged in!`);
-          window.location.href = '/user';
+          this.toaster.success(
+            `User ${this.input.username} is logged in!`,
+            '',
+            {
+              timeOut: 5000,
+            }
+          );
+          setTimeout(() => {
+            window.location.href = '/user';
+          }, 3000);
         }
       },
       (error) => {
         console.log(error.error);
         if (!this.input.username) {
-          // alert(error.error.username);
-          alert('Username is required!');
+          this.toaster.error(`Username is required!`, '', {
+            timeOut: 5000,
+          });
         } else if (!this.input.password) {
-          // alert(error.error.password);
-          alert('Password is required!');
+          this.toaster.error(`Password is required!`, '', {
+            timeOut: 5000,
+          });
         } else if (!this.input) {
-          alert('All fields are required!');
+          this.toaster.error(`All fields are required!`, '', {
+            timeOut: 5000,
+          });
         } else {
-          alert('Username or password is incorrect!');
+          this.toaster.error(`Username or password is incorrect!`, '', {
+            timeOut: 5000,
+          });
         }
       }
     );

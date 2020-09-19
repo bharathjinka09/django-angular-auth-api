@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', component: RegisterComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'django-angular-auth-api/login', component: LoginComponent },
   { path: 'user', component: UserComponent },
 ];
 
