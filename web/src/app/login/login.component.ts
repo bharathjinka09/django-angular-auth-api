@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit {
           alert('Password is required!');
         } else if (!this.input) {
           alert('All fields are required!');
+        } else {
+          alert('Username or password is incorrect!');
         }
       }
     );
