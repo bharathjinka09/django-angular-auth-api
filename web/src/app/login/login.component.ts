@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
             }
           );
           setTimeout(() => {
-            window.location.href = '/user';
+            window.location.href = '/django-angular-auth-api/user';
           }, 3000);
         }
       },
