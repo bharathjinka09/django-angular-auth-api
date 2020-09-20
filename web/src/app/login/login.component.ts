@@ -51,6 +51,14 @@ export class LoginComponent implements OnInit {
           this.toaster.error(`Password is required!`, '', {
             timeOut: 5000,
           });
+        } else if (this.input.username.length <= 3) {
+          this.toaster.error(
+            `Username should be greater than 3 characters!`,
+            '',
+            {
+              timeOut: 5000,
+            }
+          );
         } else if (!this.input) {
           this.toaster.error(`All fields are required!`, '', {
             timeOut: 5000,
