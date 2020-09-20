@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'django-angular-auth-api/login', component: LoginComponent },
   { path: 'user', component: UserComponent },
+  { path: 'django-angular-auth-api/user', component: UserComponent },
 ];
 
 @NgModule({
